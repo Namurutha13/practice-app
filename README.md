@@ -1,59 +1,48 @@
-# PracticeApp
+Image Compressor App
+A lightweight Angular web application that compresses images directly in the browser — no backend, no uploads, no data leaves your device.
+✨ Features
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
+Client-side compression — uses HTML5 Canvas API to resize and compress images entirely in the browser
+Live preview — displays both the original and compressed image side by side
+JPEG quality control — compresses to 30% JPEG quality with max width scaling (400px)
+Size reporting — logs original vs compressed file size (in KB) and compression percentage to the console
+Zero dependencies — no third-party image libraries needed
 
-## Development server
+🛠️ Tech Stack
+LayerTechnologyFrontendAngular 21CompressionHTML5 Canvas APILanguageTypeScript
+🚀 Getting Started
+Prerequisites
 
-To start a local development server, run:
+Node.js (v18+)
+Angular CLI
 
-```bash
+bashnpm install -g @angular/cli
+Installation
+bash# Clone the repository
+git clone https://github.com/your-username/practice-app.git
+cd practice-app
+
+# Install dependencies
+npm install
+
+# Start the development server
 ng serve
-```
+Open your browser and navigate to http://localhost:4200.
+📁 Project Structure
+src/
+└── app/
+    ├── app.ts          # Core compression logic (Canvas API)
+    ├── app.html        # Upload input & image preview UI
+    └── app.css         # Styles
+⚙️ How It Works
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+User selects an image file via the file input.
+The image is read as a Base64 data URL using FileReader.
+An off-screen <canvas> element draws the image at a scaled-down max width of 400px.
+The canvas exports the result as a JPEG at 0.3 quality (70% reduction).
+Original and compressed images are displayed side by side with size stats logged to the console.
 
-## Code scaffolding
+📌 Notes
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The image-compress-api/ folder contains a placeholder Node.js backend (currently unused).
+Compression is lossy — best suited for preview/thumbnail use cases.
