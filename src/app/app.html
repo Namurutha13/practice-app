@@ -1,0 +1,24 @@
+<h1>Image Compression</h1>
+
+<input
+ type="file"
+ (change)="compressImage($event)"
+/>
+
+<hr>
+
+<h2>Original Image</h2>
+
+<img
+ [src]="originalImage"
+ width="300"
+/>
+
+<hr>
+
+<h2>Compressed Image</h2>
+
+<img
+ [src]="compressedImage"
+ width="300"
+/>
